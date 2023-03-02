@@ -7,29 +7,7 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="btn">OK</button>
-
-    <script>
-      function download(filename, textInput) {
-        var element = document.createElement("a");
-        element.setAttribute(
-          "href",
-          "data:text/plain;charset=utf-8, " + encodeURIComponent(textInput)
-        );
-        element.setAttribute("download", filename);
-        document.body.appendChild(element);
-        element.click();
-
-      }
-      document.getElementById("btn").addEventListener(
-        "click",
-        function () {
-          var text = 'dai'
-          var filename = "Giao Dien Copy Grid.docx";
-          download(filename, text);
-        },
-        false
-      );
-    </script>
+    <a href="x.cs" download>dowload</a>
+ 
   </body>
 </html>
