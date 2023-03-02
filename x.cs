@@ -198,6 +198,21 @@ var spXoa = db.SanPhams.SingleOrDefault(t => t.MaSp.Equals(int.Parse(txtMaSP.Tex
 
 
 
-
-
+//kich de hien thi
+ if(dgvSanPham.SelectedItem != null)
+            {
+                try {
+                    Type t = dgvSanPham.SelectedItem.GetType();
+                    PropertyInfo[] p = t.GetProperties();
+                    txtMaSP.Text = p[0].GetValue(dgvSanPham.SelectedValue).ToString();
+                    txtTenSP.Text = p[1].GetValue(dgvSanPham.SelectedValue).ToString();
+                    cboLoai.SelectedValue = p[2].GetValue(dgvSanPham.SelectedValue).ToString();
+                    txtSoLuong.Text = p[4].GetValue(dgvSanPham.SelectedValue).ToString();
+                    txtDonGia.Text = p[3].GetValue(dgvSanPham.SelectedValue).ToString();
+                }
+                catch(Exception ex2)
+                {
+                    MessageBox.Show("Có lỗi khi chọn hàng" + ex2.Message, "Thông Báo");
+                }
+            }
 
